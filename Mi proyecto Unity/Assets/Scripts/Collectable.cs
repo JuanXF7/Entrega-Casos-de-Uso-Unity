@@ -12,12 +12,15 @@ public class Collectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Colisiona con " + other.name);
+
+        move myobject = other.GetComponent<move>();
+        myobject.cambiaObjeto = true;
         Destroy(this.gameObject);
     }
 }
